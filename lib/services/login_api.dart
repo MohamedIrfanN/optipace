@@ -12,7 +12,7 @@ class LoginApi {
    sentOtp(String mobileNumber,BuildContext context) async{
     var response = await _dio.get(_baseUrl+'/$mobileNumber');
     print(response.data);
-    if(response.data['code'] == 12){
+    if(response.data['code'] != 1){
       final snackBar = SnackBar(
         content: Text("${response.data['message']}"),
       );
